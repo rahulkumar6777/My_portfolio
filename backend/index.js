@@ -13,7 +13,12 @@ const __dirname = path.dirname(__filename);
 
 app.set("trust proxy", true);
 app.use(express.json());
+let i = 1;
 
+app.use((req, res, next) => {
+    console.log('request no', i++);
+    next();
+});
 
 const contactLimiter = rateLimit({
     windowMs: 60 * 60 * 1000,
@@ -25,8 +30,6 @@ const contactLimiter = rateLimit({
     standardHeaders: true,
     legacyHeaders: false,
 });
-let i = 1
-console.log('request no', i++)
 
 app.post("/api/contact", contactLimiter, async (req, res) => {
     try {
@@ -64,7 +67,6 @@ app.post("/api/contact", contactLimiter, async (req, res) => {
         res.status(500).json({ success: false, msg: "Something went wrong" });
     }
 });
-
 
 
 const buildPath = path.join(__dirname, "dist");
