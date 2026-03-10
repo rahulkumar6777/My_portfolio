@@ -42,16 +42,6 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "Social-Media Platform",
-      description: "A modern social media platform with real-time messaging, live notifications, instant like updates, and interactive post sharing. It delivers a smooth, engaging experience with fast performance and real-time user interactions.",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io", "Docker", "GitHub Action", "Nginx"],
-      type: "fullstack",
-      image: "https://api-devload.cloudcoderhub.in/public/695f91881242b7ee566ffeea/1767977691765bcf60c01dd79cebc65535d87.png",
-      github: "https://github.com/Rahulkumar6777/zapnet",
-      live: "https://zapnet.cloudcoderhub.in"
-    },
-    {
-      id: 2,
       title: "DevLoad - Developer File Hosting & Storage Platform",
       description:
         "A self-hosted alternative to S3 providing secure project-wise storage using MinIO. Supports file uploads, signed URLs, bucket isolation per project, email alerts, Redis-based job queueing, Dockerised workers, CI/CD automation, domain integration, and production-grade infrastructure. Built to offer affordable file hosting with 5 projects, 5GB storage, and 100GB bandwidth.",
@@ -66,28 +56,32 @@ export const portfolioData = {
         "CI/CD",
         "Cloudflare"
       ],
-      type: "devops",
+      type: "fullstack",
       image: "https://api-devload.cloudcoderhub.in/public/695f91881242b7ee566ffeea/176797767201909a04ed66600d34765d77694.png",
       github: "https://github.com/Rahulkumar6777/DevLoad",
       live: 'https://devload.cloudcoderhub.in'
     },
     {
-      id: 3,
-      title: "GalleryHub – Cloud Media Gallery Platform",
+      id: 2,
+      title: "DeployHub - Self-Hosted Cloud Deployment Platform",
       description:
-        "A cloud-based image & media gallery platform built on top of DevLoad storage infrastructure. Supports project-wise galleries, secure uploads via signed URLs, public/private media sharing, automatic bucket isolation, and optimized delivery with domain + SSL integration.",
+        "A self-hosted Heroku/Vercel alternative built from scratch. Supports Node.js & static site deployments via automated Docker build/push pipeline, custom subdomain routing with a custom reverse proxy, real-time build log streaming using Redis Pub/Sub and Socket.IO, automated SSL certificate provisioning for custom domains via Let's Encrypt and Docker SDK, dynamic Nginx config generation, scalable request tracking with BullMQ and MongoDB, and MinIO-based build log storage.",
       tech: [
-        "React",
         "Node.js",
-        "express",
-        "DevLoad",
         "Docker",
+        "Redis",
+        "BullMQ",
+        "Socket.IO",
+        "MongoDB",
+        "Nginx",
+        "MinIO",
+        "Let's Encrypt",
         "CI/CD"
       ],
-      type: "fullstack",
-      image: "https://api-devload.cloudcoderhub.in/public/695f91881242b7ee566ffeea/1768303097390f6708707dcc355401a9574ab.png",
-      github: "https://github.com/Rahulkumar6777/galleryhub",
-      live: 'https://galleryhub.cloudcoderhub.in'
-    }
+      type: "devops",
+      image: "https://api-devload.cloudcoderhub.in/public/69a26bb5e558f1024337ce27/17731698223745db8fc0e24b05c155e3a935d.png",
+      github: "https://github.com/Rahulkumar6777/deployhub",
+      live: "https://deployhub.cloud"
+    },
   ]
 };
