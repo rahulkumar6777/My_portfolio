@@ -1,35 +1,94 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, ArrowUp, Github, Linkedin } from "lucide-react";
 import { portfolioData } from "./src/Data/PortfolioData";
-import { About } from "./src/pages/About";
-import { Contact } from "./src/pages/Contact";
+import { Navbar } from "./src/pages/Navbar";
 import { Home } from "./src/pages/Home";
 import { Project } from "./src/pages/Project";
-import { Navbar } from "./src/pages/Navbar";
-import { motion, AnimatePresence } from 'framer-motion';
+import { About } from "./src/pages/About";
+import { Contact } from "./src/pages/Contact";
 
 export default function Portfolio() {
-  const [activeSection, setActiveSection] = useState('home');
-
+  const [activeSection, setActiveSection] = useState("home");
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-15% 0px -55% 0px", threshold: 0 },
+    );
+    document
+      .querySelectorAll("main > section[id]")
+      .forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-fuchsia-950 to-pink-950 pt-16">
-      <div className="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDE2YzAtMy4zMTQgMi42ODYtNiA2LTZzNiAyLjY4NiA2IDYtMi42ODYgNi02IDYtNi0yLjY4Ni02LTZ6TTIwIDUwYzAtMy4zMTQgMi42ODYtNiA2LTZzNiAyLjY4NiA2IDYtMi42ODYgNi02IDYtNi0yLjY4Ni02LTZ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30" />
-      
-      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-      
-      <AnimatePresence mode="wait">
-        {activeSection === 'home' && <Home key="home" setActiveSection={setActiveSection} />}
-        {activeSection === 'about' && <About key="about" />}
-        {activeSection === 'projects' && <Project key="projects" />}
-        {activeSection === 'contact' && <Contact key="contact" />}
-      </AnimatePresence>
-
-      <footer className="relative py-8 border-t border-pink-500/20 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-gray-400">
-            © 2026 {portfolioData.personal.name}. Built with ❤️ using React & Framer Motion
-          </p>
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Navbar activeSection={activeSection} />
+      <main id="main">
+        <Home />
+        <div className="expertise-strip" aria-label="Specialties">
+          <div className="section-wrap expertise-strip-inner">
+            <span>
+              THOUGHTFULLY BUILT. <strong>FROM FRONT TO BACK.</strong>
+            </span>
+            <div>
+              <span>FULL STACK</span>
+              <span className="strip-star">✳</span>
+              <span>BACKEND</span>
+              <span className="strip-star">✳</span>
+              <span>DEVOPS</span>
+              <span className="strip-star">✳</span>
+              <span>CLOUD</span>
+            </div>
+          </div>
+        </div>
+        <Project />
+        <About />
+        <Contact />
+      </main>
+      <footer className="footer section-wrap">
+        <a
+          className="brand footer-brand"
+          href="#home"
+          aria-label="Rahul Kumar home"
+        >
+          r<span>k</span>
+          <i>.</i>
+        </a>
+        <p>
+          © {new Date().getFullYear()} Rahul Kumar <span>·</span> Built with
+          curiosity & a little caffeine.
+        </p>
+        <div className="footer-links">
+          <a
+            href={portfolioData.personal.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <Github size={18} />
+          </a>
+          <a
+            href={portfolioData.personal.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={18} />
+          </a>
+          <a href="#home" className="back-top" aria-label="Back to top">
+            <ArrowUp size={18} />
+          </a>
         </div>
       </footer>
-    </div>
+      <a href="#contact" className="mobile-contact-link">
+        Let’s talk <ArrowUpRight size={17} />
+      </a>
+    </>
   );
 }
