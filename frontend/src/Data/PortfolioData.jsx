@@ -8,7 +8,7 @@ export const portfolioData = {
     github: "https://github.com/Rahulkumar6777",
     linkedin: "https://www.linkedin.com/in/rahul-kumar-003aa2316/",
     twitter: "",
-    "picture": "https://api-devload.cloudcoderhub.in/public/695f91881242b7ee566ffeea/176787154576659db7e7e05eb043d7fee2d91.jpeg"
+    "picture": "https://cdn.domaindrop.cloud/dd-6a862db78bc59f70fd83615e/spaces/6ab3fbbd5baff8e78c0f275d/rahul.jpeg"
   },
 
   about: {
@@ -42,24 +42,22 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "DevLoad - Developer File Hosting & Storage Platform",
+      title: "DomainDrop - Developer File Hosting & Storage Platform",
       description:
-        "A self-hosted alternative to S3 providing secure project-wise storage using MinIO. Supports file uploads, signed URLs, bucket isolation per project, email alerts, Redis-based job queueing, Dockerised workers, CI/CD automation, domain integration, and production-grade infrastructure. Built to offer affordable file hosting with 5 projects, 5GB storage, and 100GB bandwidth.",
+        "DomainDrop is a developer-focused object storage platform built with Node.js, Express, MongoDB, Redis, MinIO AIStor, and a React dashboard. It provides per-user object storage with automatic bucket provisioning, logical Spaces for project isolation, nested object paths, and storage, object-count, and file-size quotas.",
       tech: [
         "Node.js",
-        "MinIO",
+        "express",
+        "Minio",
         "Redis",
         "socket.io",
         "Docker",
-        "Nginx",
-        "Ubuntu",
-        "CI/CD",
-        "Cloudflare"
+        "React"
       ],
       type: "fullstack",
-      image: "https://cdn.domaindrop.cloud/dd-6a862db78bc59f70fd83615e/spaces/6ab3fbbd5baff8e78c0f275d/rahul.jpeg",
-      github: "https://github.com/Rahulkumar6777/DevLoad",
-      live: 'https://devload.cloudcoderhub.in'
+      image: "https://cdn.domaindrop.cloud/dd-6a862db78bc59f70fd83615e/spaces/6ab401c55baff8e78c0f2761/DomainDrop.png",
+      github: "https://github.com/rahulkumar6777/DomainDrop",
+      live: 'https://domaindrop.cloud'
     },
     {
       id: 2,
@@ -79,7 +77,7 @@ export const portfolioData = {
         "CI/CD"
       ],
       type: "devops",
-      image: "https://api-devload.cloudcoderhub.in/public/69a26bb5e558f1024337ce27/17731698223745db8fc0e24b05c155e3a935d.png",
+      image: "https://cdn.domaindrop.cloud/dd-6a862db78bc59f70fd83615e/spaces/6ab401c55baff8e78c0f2761/deployhub.png",
       github: "https://github.com/Rahulkumar6777/deployhub",
       live: "https://deployhub.cloud"
     },
