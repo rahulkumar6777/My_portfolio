@@ -50,7 +50,7 @@ app.post("/api/contact", contactLimiter, async (req, res) => {
 
         await transporter.sendMail({
             from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-            to: process.env.RECEIVER_EMAIL,
+            to: process.env.ADMIN_USER,
             subject: `New Contact Message from ${name}`,
             html: `
         <h2>New Contact Message</h2>
